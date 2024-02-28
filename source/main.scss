@@ -1,0 +1,62 @@
+@use '../source/config/cores.scss';
+@use '../source/header/header.scss';
+@use '../source/section/section.scss';
+@use '../source/config/reset.scss';
+@use '../source/config/resoluções.scss';
+
+body{
+    background-color: cores.$corDeFundo;
+}
+
+.container {
+    max-width: 1024px;
+    width: 100%;
+    margin: 0 auto;
+    
+    .products {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        .product-item {
+            width: calc(25% - 20px);
+            margin-bottom: 20px;
+
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+
+            h4 {
+                margin: 10px 0;
+            }
+
+            p {
+                margin-bottom: 10px;
+            }
+
+            .product-button {
+                display: block;
+                background-color: cores.$corBotoes;
+                color: #fff;
+                padding: 5px 10px;
+                text-decoration: none;
+                border-radius: 5px;
+
+                &:hover{
+                    background-color: cores.$corBtnHover;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: resoluções.$mobile) {
+        .products {
+            flex-direction: column;
+
+            .product-item {
+                width: 100%; // ocupar toda a largura quando em coluna
+            }
+        }
+    }
+}
